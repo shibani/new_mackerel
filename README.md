@@ -9,8 +9,8 @@
 
 **In the root folder run**
 * `mix deps.get`
-* `mix ecto.create`
-* `mix ecto.migrate`
+* `docker-compose run --rm app mix ecto.create`
+* `docker-compose run --rm app mix ecto.migrate`
 * `cd assets && npm install`  
 
 &nbsp;  

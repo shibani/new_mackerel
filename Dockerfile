@@ -14,6 +14,5 @@ RUN mix local.hex --force \
 
  WORKDIR /app
  EXPOSE 4000
- HEALTHCHECK CMD wget -q -O /dev/null http://localhost:4000/healthy || exit 1
 
  CMD ["mix", "phx.server"]
