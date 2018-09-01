@@ -1,19 +1,42 @@
-# Yelp
+# New Mackerel
 
-To start your Phoenix server:
+**To Install**
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Start Phoenix endpoint with `mix phx.server`
+* Clone this repo
+* From the command line, cd into repo folder on local machine
+* run `docker build -t <enter any_name here to name your image> .`
+* run `docker-compose build`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+**In the root folder run**
+* `mix deps.get`
+* `mix ecto.create`
+* `mix ecto.migrate`
+* `cd assets && npm install`  
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+&nbsp;  
+**Note:** When running `npm install` above, the auto-installed `Growl 1.8.1` dependency shows up as a critical vulnerability in Git. To fix this, cd into `assets` and open `package-lock.json`.  Find and replace all `Growl 1.8.1` dependencies with `Growl 1.10.0`)
 
-## Learn more
+**To build and start up your container (recreates the container):**  
+`docker-compose up`  
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+**To view your project in a browser:**  
+Navigate to http://localhost:4000/
+___
+
+**To view your images:**  
+In terminal, enter: `docker images`  
+
+**To view your containers:**  
+`docker container ls` (will show you only started containers)  
+`docker container ls --all` (will show you all containers, stopped and started)  
+
+**To stop your containers:**  
+`docker stop <name_of_app_container> <name_of_db_container>`  
+
+**To re-start your containers without re-creating them:**  
+`docker start <name_of_app_container> <name_of_db_container>`  
+___
+
+**To run tests:**  
+In root folder run
+`mix tests`
