@@ -11,7 +11,13 @@ config :yelp, YelpWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: []
+  watchers: [node: [
+    "node_modules/webpack/bin/webpack.js",
+    "--mode",
+    "development",
+    "--watch-stdin",
+    "--colors",
+    cd: Path.expand("../assets", __DIR__)]]
 
 # ## SSL Support
 #
